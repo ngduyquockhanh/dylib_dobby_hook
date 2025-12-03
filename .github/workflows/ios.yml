@@ -26,7 +26,7 @@ jobs:
 
     - name: compile macos
       run: |
-        bash build.sh
+        bash build.sh -o ios
         
       shell: bash
 
