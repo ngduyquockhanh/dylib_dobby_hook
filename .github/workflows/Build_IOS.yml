@@ -15,14 +15,6 @@ jobs:
     steps:
     - name: checkout main
       uses: actions/checkout@master
-      
-    - name: delete latest release
-      uses: dev-drprasad/delete-tag-and-release@v0.2.1
-      with:
-        delete_release: true
-        tag_name: latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}  
 
     - name: compile ios
       run: |
