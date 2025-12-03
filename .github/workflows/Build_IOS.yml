@@ -26,4 +26,9 @@ jobs:
     - name: print output
       run: |
         ls -lha .
+    
+    - name: Pack build output
+      run: |
+        mkdir -p dist
+        zip -r dist/ios-build.zip build/ios/Output
 
