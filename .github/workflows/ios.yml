@@ -1,4 +1,4 @@
-name: Builder
+name: iOS Builder
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}  
 
-    - name: compile macos
+    - name: compile ios
       run: |
         bash build.sh -o ios
         
@@ -35,16 +35,3 @@ jobs:
       run: |
         ls -lha .
 
-    - name: update release
-      uses: ncipollo/release-action@v1
-      with:
-        token: ${{ secrets.TOKEN }}
-        tag: latest
-        body: |
-          A macOS dylib project, aimed at enhancing and extending the functionality of target software.
-
-          ## Latest Commit
-          ${{ github.event.head_commit.message }}        
-        artifacts: "dylib_dobby_hook.tar.gz"
-        allowUpdates: true
-        replacesArtifacts: true
